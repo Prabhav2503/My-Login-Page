@@ -1,7 +1,14 @@
 import logo from "../assets/IITD_Logob.png";
 import Galaxy from "../styles/background.js";
+import { useState } from "react";
 
 function LoginPage(params) {
+  const [showpassword, setshowpassword] = useState(false)
+
+  function submitbtn () {
+    alert("submitted")
+  }
+  
   return (
     <>
       <div style={{ width: "100vw", height: "100vh", position: "relative", backgroundColor: "black"}}>
@@ -28,18 +35,18 @@ function LoginPage(params) {
         <input
           id="password"
           className="inputs"
-          type="password"
+          type={showpassword?"text":"password"}
           placeholder="Password"
         />
         <div className="passwordoptions">
           <label htmlFor="showpassword">
-            <input type="checkbox" id="showpassword" /> Show Password
+            <input type="checkbox" id="showpassword" checked = {showpassword} onChange={(e) => {setshowpassword(e.target.checked)}}/> Show Password
           </label>
           <a href="" id="forgetpassword">
             Forget Password?
           </a>
         </div>
-        <button type="submit" id="signin">
+        <button type="submit" id="signin" onClick={submitbtn}>
           Sign In
         </button>
         <div className="divider">OR</div>
