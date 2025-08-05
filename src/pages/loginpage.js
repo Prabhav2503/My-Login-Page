@@ -3,12 +3,16 @@ import Galaxy from "../styles/background.js";
 import { useState } from "react";
 
 function LoginPage(params) {
+  const [username, setusername] = useState("")
+  const [password, setpassword] = useState("");
   const [showpassword, setshowpassword] = useState(false)
 
   function submitbtn () {
+    setusername("");
+    setpassword("");
     alert("submitted")
   }
-  
+
   return (
     <>
       <div style={{ width: "100vw", height: "100vh", position: "relative", backgroundColor: "black"}}>
@@ -31,12 +35,16 @@ function LoginPage(params) {
           className="inputs"
           type="text"
           placeholder="Enter Username"
+          value={username}
+          onChange={(e) => {setusername(e.target.value)}}
         />
         <input
           id="password"
           className="inputs"
           type={showpassword?"text":"password"}
           placeholder="Password"
+          value={password}
+          onChange={(e) => {setpassword(e.target.value)}}
         />
         <div className="passwordoptions">
           <label htmlFor="showpassword">
