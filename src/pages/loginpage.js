@@ -1,6 +1,7 @@
 import logo from "../assets/IITD_Logob.png";
 import Galaxy from "../styles/background.js";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function LoginPage(params) {
   const [username, setusername] = useState("")
@@ -50,9 +51,9 @@ function LoginPage(params) {
           <label htmlFor="showpassword">
             <input type="checkbox" id="showpassword" checked = {showpassword} onChange={(e) => {setshowpassword(e.target.checked)}}/> Show Password
           </label>
-          <a href="" id="forgetpassword">
-            Forget Password?
-          </a>
+          <NavLink to="/forgot-password" className="forgetpassword">
+            Forgot Password?
+          </NavLink>
         </div>
         <button type="submit" id="signin" onClick={submitbtn}>
           Sign In
